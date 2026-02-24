@@ -22,7 +22,7 @@ resource "aws_instance" "game_server" {
   }
 }
 
-resource "aws_security_group" "gameakshay" {
+resource "aws_security_group" "game1" {
   name = "gameakshay"
 
   ingress {
