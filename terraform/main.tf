@@ -5,7 +5,7 @@ provider "aws" {
 resource "aws_instance" "game_server" {
   ami           = "ami-02774d409be696d81" 
   instance_type = "t3.small"
-  key_name      = "CI_CD"
+  key_name      = "CI/CD"
 
   security_groups = [aws_security_group.gameakshay.name]
 
