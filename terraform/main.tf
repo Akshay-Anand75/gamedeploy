@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "ClearGame" {
-  ami           = "ami-090b9c8aa1c84aefc" 
+  ami           = "ami-02774d409be696d81" 
   instance_type = "t3.small"
   key_name      = "cicd"
 
