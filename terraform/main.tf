@@ -2,12 +2,12 @@ provider "aws" {
   region = "ap-south-2"
 }
 
-resource "aws_instance" "game_server" {
-  ami           = "ami-02774d409be696d81" 
+resource "aws_instance" "ClearGame" {
+  ami           = "ami-090b9c8aa1c84aefc" 
   instance_type = "t3.small"
-  key_name      = "CI/CD"
+  key_name      = "cicd"
 
-  security_groups = [aws_security_group.gameakshay.name]
+  security_groups = [aws_security_group.CleanDeploy.name]
 
   user_data = <<-EOF
               #!/bin/bash
@@ -18,12 +18,12 @@ resource "aws_instance" "game_server" {
               EOF
 
   tags = {
-    Name = "Game-Server"
+    Name = "Game-Clean"
   }
 }
 
-resource "aws_security_group" "gameakshay" {
-  name = "game1"
+resource "aws_security_group" "CleanDeploy" {
+  name = "game2"
 
   ingress {
     from_port   = 22
