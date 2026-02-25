@@ -47,5 +47,5 @@ resource "aws_security_group" "CleanDeploy" {
   }
 }
 output "public_ip" {
-  value = aws_instance.game_server.public_ip
+  value = aws_instance.ClearGame.public_ip
 }
