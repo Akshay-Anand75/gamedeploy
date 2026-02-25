@@ -1,20 +1,25 @@
-const target = document.getElementById("target");
-const scoreEl = document.getElementById("score");
+let randomNumber = Math.floor(Math.random() * 100) + 1;
 
-let score = 0;
+function checkGuess() {
+    const guess = Number(document.getElementById("guessInput").value);
+    const message = document.getElementById("message");
 
-function moveTarget() {
-  const x = Math.random() * 360;
-  const y = Math.random() * 360;
-  target.style.left = x + "px";
-  target.style.top = y + "px";
+    if (!guess) {
+        message.textContent = "⚠️ Please enter a number!";
+        return;
+    }
+
+    if (guess === randomNumber) {
+        message.textContent = "🎉 Correct! You guessed it!";
+    } else if (guess < randomNumber) {
+        message.textContent = "📉 Too low! Try again.";
+    } else {
+        message.textContent = "📈 Too high! Try again.";
+    }
 }
 
-target.addEventListener("click", () => {
-  score++;
-  scoreEl.textContent = score;
-  moveTarget();
-});
-
-// initial position
-moveTarget();
+function resetGame() {
+    randomNumber = Math.floor(Math.random() * 100) + 1;
+    document.getElementById("message").textContent = "";
+    document.getElementById("guessInput").value = "";
+}
